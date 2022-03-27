@@ -1,0 +1,8 @@
+.card {
+    width: 500px;
+    margin: auto;
+}
+
+.card-body {
+  background-color: #414855;
+}

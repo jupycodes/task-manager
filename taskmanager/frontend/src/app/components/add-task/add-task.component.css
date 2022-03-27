@@ -1,0 +1,13 @@
+.form-group, .alert {
+    width: 500px;
+    margin: auto;
+}
+
+h3 {
+    text-align: center;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+}
