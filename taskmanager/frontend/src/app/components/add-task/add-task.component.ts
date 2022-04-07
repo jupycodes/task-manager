@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TasksService } from 'src/app/services/tasks-service.service';
 
 @Component({
   selector: 'app-add-task',
@@ -18,13 +19,17 @@ export class AddTaskComponent implements OnInit {
 
   })
 
-  constructor() { }
+  constructor(private taskService:TasksService) { }
 
   ngOnInit(): void {
   }
 
   add_task(){
     console.log(this.form.value)
+    this.taskService.createTask(this.form.value).subscribe(() => {
+      alert("Task was added sucessfully")
+      this.form.reset()
+    })
   }
 
   get title(){

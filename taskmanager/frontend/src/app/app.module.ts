@@ -8,6 +8,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddTaskComponent } from './components/add-task/add-task.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'tasks', component: TasksComponent},
+  {path: 'add-task', component: AddTaskComponent}
+]
 
 @NgModule({
   declarations: [
@@ -19,7 +28,7 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
     AddTaskComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule
+    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule, AppRoutingModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
