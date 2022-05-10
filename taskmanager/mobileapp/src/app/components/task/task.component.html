@@ -1,0 +1,13 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>{{ task.category }}</ion-card-subtitle>
+    <ion-card-title>{{ task.title }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ task.task_date | date}} <br>
+    {{task.description}} <br>
+    {{task.priority_level}} <br>
+    {{task.progress_level}}
+  </ion-card-content>
+</ion-card>

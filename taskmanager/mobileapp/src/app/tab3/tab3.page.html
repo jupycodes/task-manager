@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 3
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form">
+
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input formControlName="title"></ion-input>
+    </ion-item>
+    <ion-item class="alert alert-danger" *ngIf="title.invalid && title.touched">
+      <span *ngIf="form.get('title')!.errors?.['required']">A title is required</span>
+    </ion-item>
+    
+
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Date</ion-label>
+      <ion-input type="date" formControlName="task_date"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Category</ion-label>
+      <ion-input formControlName="category"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Priority Level</ion-label>
+      <ion-select placeholder="Select One" formControlName="priority_level">
+        <ion-select-option value="low">Low</ion-select-option>
+        <ion-select-option value="medium">Medium</ion-select-option>
+        <ion-select-option value="high">High</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Progress Level</ion-label>
+      <ion-select placeholder="Select One" formControlName="progress_level">
+        <ion-select-option value="pending">Pending</ion-select-option>
+        <ion-select-option value="started">Started</ion-select-option>
+        <ion-select-option value="completed">Completed</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button (click)="add_task()" [disabled]="form.invalid">Submit</ion-button>
+
+  </form>
+</ion-content>
