@@ -5,8 +5,8 @@ const Task = require('./Models/Task');
 const cors = require('cors');
 
 app.use(cors()); 
-app.use(express.json())
 app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 //create database connection
 config.authenticate().then(function(){
@@ -75,7 +75,7 @@ app.patch('/:id', function(req,res){
     });
 });
 
-
-app.listen(3000, function(){
+//process.env.port for heroku, 3000 for local
+app.listen(process.env.PORT || 3000, function(){
     console.log("server is running on port 3000");
 });
